@@ -1,4 +1,5 @@
 import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
+import { uuid } from 'uuidv4';
 import React from "react";
 
 class AddContact extends React.Component {
@@ -10,7 +11,8 @@ class AddContact extends React.Component {
     add = (e) => {
         e.preventDefault();
         if(this.state.name === "" && this.state.email === "") {
-            alert("All the fields are madatory")
+            alert("All the fields are mandatory!!")
+            return
         }
         this.props.addContactHandler(this.state);
         this.setState({name:'', email:'' });
